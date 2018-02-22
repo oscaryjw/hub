@@ -1,9 +1,13 @@
 # locust.py
 
+import logging
 from locust import HttpLocust, TaskSet, task, web
-
 from hubTasks import HubTasks
 from hubUser import HubUser
+from utils.log import setup_logging
+
+setup_logging()
+logger = logging.getLogger(__name__)
 
 
 class BatchUser(HubUser):
@@ -77,6 +81,7 @@ class VerifierTasks(TaskSet):
 
     @web.app.route("/callback/<channel>", methods=['GET', 'POST'])
     def callback(channel):
+        logger.debug(request.method + ' /callback/' + channel + ' - ' + request.get_data())
         return HubTasks.callback(channel)
 
 
