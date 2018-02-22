@@ -11,7 +11,7 @@ WORKDIR /locust
 
 #RUN test -f requirements.txt && pip install -r requirements.txt
 
-ADD . /locust
+COPY ./ /locust
 
 EXPOSE 8089 5557 5558
 
