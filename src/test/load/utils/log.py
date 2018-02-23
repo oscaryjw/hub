@@ -9,12 +9,12 @@ LOG_FILENAME = '/mnt/log/debug.log'
 def setup_logging():
     squelch_non_critical('urllib3.connectionpool')
 
-    root_logger = logging.getLogger()
-    root_logger.setLevel(logging.DEBUG)
+    # root_logger = logging.getLogger()
+    # root_logger.setLevel(logging.DEBUG)
 
-    log_format = '%(asctime)s [%(levelname)s] %(name)s : %(message)s'
-    formatter = logging.Formatter(log_format, '%Y-%m-%d %H:%M:%S')
-    root_logger.addHandler(create_file_handler(formatter))
+    # log_format = '%(asctime)s [%(levelname)s] %(name)s : %(message)s'
+    # formatter = logging.Formatter(log_format, '%Y-%m-%d %H:%M:%S')
+    # root_logger.addHandler(create_file_handler(formatter))
 
 
 def create_file_handler(formatter):
