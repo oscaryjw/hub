@@ -6,7 +6,6 @@ build/
 *_local.properties
 integration_config_local.js
 .idea/
-__init__.py
 **/.venv/
 **/node_modules/
 **/*.pyc
