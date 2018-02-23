@@ -3,6 +3,8 @@ from logging.handlers import TimedRotatingFileHandler
 
 # todo - Figure out how to override Locust's logging.basicConfig call so we can control the console output.
 
+LOG_FILENAME = '/mnt/log/debug.log'
+
 
 def setup_logging():
     squelch_non_critical('urllib3.connectionpool')
@@ -17,7 +19,7 @@ def setup_logging():
 
 def create_file_handler(formatter):
     # https://docs.python.org/2/library/logging.handlers.html#timedrotatingfilehandler
-    handler = logging.handlers.TimedRotatingFileHandler('/var/log/locust.log', when='midnight', interval=1, encoding='utf-8', utc=True)
+    handler = logging.handlers.TimedRotatingFileHandler(LOG_FILENAME, when='midnight', interval=1, encoding='utf-8', utc=True)
     handler.setFormatter(formatter)
     return handler
 
